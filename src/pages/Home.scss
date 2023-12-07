@@ -1,0 +1,33 @@
+.main-wrapper {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.hero-image {
+  width: 400px;
+  height: 300px;
+  background-image: url("../assets//image9.jpg");
+  background-position: center;
+  background-size: cover;
+  border: 5px solid rgb(101, 91, 126);
+}
+
+.hero-image-wrapper {
+  display: flex;
+  justify-content: center;
+  padding: 2rem;
+}
+
+h2 {
+  padding: 1rem;
+}
+
+.image-p {
+  padding-left: 3rem;
+  padding-right: 3rem;
+}
+.joes-p {
+  padding-top: 2rem;
+}

@@ -1,0 +1,41 @@
+.gallery-wrapper {
+  padding: 1rem;
+}
+
+.image-wrapper {
+  padding-bottom: 1rem;
+}
+
+.image-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+}
+
+.image-box {
+  width: 100%;
+}
+
+.categories-name {
+  text-align: left;
+  padding: 1rem;
+}
+
+.titel {
+  margin: 0;
+}
+
+.price {
+  margin: 0;
+}
+
+button {
+  border-radius: 6px;
+  background-color: rgb(109, 109, 109);
+  border-color: black;
+  color: white;
+  &:hover {
+    background-color: rgb(224, 224, 224);
+    color: rgb(69, 69, 69);
+  }
+}
