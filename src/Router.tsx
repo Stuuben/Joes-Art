@@ -4,6 +4,7 @@ import { Error } from "./pages/Error";
 import { Home } from "./pages/Home";
 import { Gallery } from "./pages/Gallery";
 import { Contact } from "./pages/Contact";
+import { ImageView } from "./components/ImageView";
 
 export const router = createBrowserRouter([
   {
@@ -19,6 +20,10 @@ export const router = createBrowserRouter([
       {
         path: "/gallery",
         element: <Gallery></Gallery>,
+      },
+      {
+        path: "/gallery/:id",
+        element: <ImageView></ImageView>,
       },
       {
         path: "/contact",

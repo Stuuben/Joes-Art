@@ -25,6 +25,7 @@ export interface IGetImages {
     price: number;
     size: string;
     category: string;
+    isSold: boolean;
     image: {
       fields: {
         description: string;
