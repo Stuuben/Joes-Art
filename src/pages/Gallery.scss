@@ -4,6 +4,30 @@
 
 .image-wrapper {
   padding-bottom: 1rem;
+  .image-box {
+    width: 100%;
+  }
+  a {
+    text-decoration: none;
+    color: black;
+  }
+  .title {
+    margin: 0;
+  }
+  .price {
+    margin: 0;
+  }
+  button {
+    border-radius: 6px;
+    background-color: rgb(109, 109, 109);
+    border-color: black;
+    color: white;
+    cursor: pointer;
+    &:hover {
+      background-color: rgb(224, 224, 224);
+      color: rgb(69, 69, 69);
+    }
+  }
 }
 
 .image-grid {
@@ -12,34 +36,21 @@
   gap: 10px;
 }
 
-.image-box {
-  width: 100%;
+.sold-sticker {
+  position: absolute;
+  top: 1;
+  left: 1;
+  background-color: #4296d3;
+  color: white;
+  padding: 1px;
+  font-size: 12px;
+  width: 40px;
+  border-radius: 2px;
 }
 
 .categories-name {
   text-align: left;
   padding: 1rem;
-}
-
-.title {
-  margin: 0;
-}
-
-.price {
-  margin: 0;
-}
-
-button {
-  border-radius: 6px;
-
-  background-color: rgb(109, 109, 109);
-  border-color: black;
-  color: white;
-  cursor: pointer;
-  &:hover {
-    background-color: rgb(224, 224, 224);
-    color: rgb(69, 69, 69);
-  }
 }
 
 .size {

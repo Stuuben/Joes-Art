@@ -1,0 +1,46 @@
+.view-wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  h2 {
+    margin-bottom: 0;
+  }
+  p {
+    width: 70%;
+    margin: 5px;
+  }
+  img {
+    width: 70%;
+    border: 2px solid black;
+  }
+  .description {
+    text-align: left;
+  }
+  .box-divider {
+    display: flex;
+
+    flex-direction: row;
+    width: 70%;
+    span {
+      width: 100%;
+      text-align: left;
+      padding-top: 8px;
+    }
+    .type-names {
+      width: 50%;
+      font-size: 15px;
+    }
+  }
+  .contact-me {
+    padding: 3rem;
+    text-align: left;
+    p {
+      width: 100%;
+    }
+    a {
+      color: rgb(0, 128, 255);
+      text-decoration: none;
+    }
+  }
+}
