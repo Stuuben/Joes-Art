@@ -4,6 +4,8 @@ export const Home = () => {
   return (
     <div className="main-wrapper">
       <div className="content-wrapper">
+        <h1>Joes Art</h1>
+        <h3>Kommande Events</h3>
         <div className="hero-image-wrapper">
           <div className="hero-image"></div>
         </div>

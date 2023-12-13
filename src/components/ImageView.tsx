@@ -1,6 +1,7 @@
 import { Link, useLocation } from "react-router-dom";
 import { IGetImages } from "../pages/Gallery";
 import "./ImageView.scss";
+import { Form } from "./Form";
 
 export const ImageView: React.FC = () => {
   const location = useLocation();
@@ -29,7 +30,6 @@ export const ImageView: React.FC = () => {
         <span className="type-names">Typ: </span>
         <span> {image.fields.category}</span>
       </div>
-
       <div className="box-divider">
         <span className="type-names">Beskrivning: </span>
         <span>
@@ -42,9 +42,12 @@ export const ImageView: React.FC = () => {
       <div className="contact-me">
         <p>Är du intresserad av att köpa?</p>
         <p>
-          Kotakta mig, se under <Link to={"/contact"}>Kontakt</Link>
+          Kotakta mig, se under <Link to={"/contact"}>Kontakt</Link> eller fyll
+          i formuläret nedan.
         </p>
       </div>
+      <Form subject={image.fields.name}></Form>
+      <div className="spacing"></div>
     </div>
   );
 };
