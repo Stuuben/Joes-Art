@@ -1,0 +1,23 @@
+@import "../scss/variables";
+.form-wrapper {
+  form {
+    display: flex;
+    flex-direction: column;
+  }
+  input {
+    padding: 10px;
+    font-family: Arial, Helvetica, sans-serif;
+  }
+  textarea {
+    padding: 10px;
+    font-family: Arial, Helvetica, sans-serif;
+  }
+  button {
+    margin-top: 10px;
+    padding: 10px;
+    border-radius: 5px;
+    background-color: $secondary-color;
+    font-size: 15px;
+    color: white;
+  }
+}

@@ -1,0 +1,51 @@
+@import "../scss/variables";
+
+.contact-wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  .contact-text {
+    padding: 10px;
+    font-size: 20px;
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+  }
+  .contact {
+    width: 80%;
+  }
+
+  a {
+    color: $secondary-color;
+    padding: 5px;
+    font-size: 2rem;
+
+    &:hover {
+      scale: (1.1);
+    }
+  }
+
+  .icons-wrapper {
+    padding: 2rem;
+  }
+  .icons-inner-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-right: 4rem;
+  }
+  .icons-box {
+    display: flex;
+    width: 50%;
+  }
+
+  .portrait {
+    margin-top: 3rem;
+    padding: 1rem;
+
+    img {
+      width: 50%;
+    }
+  }
+}
