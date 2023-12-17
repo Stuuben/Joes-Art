@@ -1,4 +1,6 @@
-/* import { IGetImages } from "../pages/Gallery";
+/* import { IGetImages } from "../pages/Gallery"; */
+
+import { IGetImages } from "../models/IGetImages";
 
 interface IShowImagesProps {
   images: IGetImages[];
@@ -33,4 +35,3 @@ export const ShowImages: React.FC<IShowImagesProps> = ({
     </div>
   );
 };
- */

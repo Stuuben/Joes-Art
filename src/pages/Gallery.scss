@@ -23,9 +23,9 @@
     border-radius: 6px;
     background-color: rgb(109, 109, 109);
     border-color: black;
-    /*   background-color: $secondary-color; */
     color: white;
     cursor: pointer;
+
     &:hover {
       background-color: rgb(224, 224, 224);
       color: rgb(69, 69, 69);
@@ -58,4 +58,92 @@
 
 .size {
   font-size: 12px;
+}
+
+.category-wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  text-align: left;
+
+  select {
+    width: 120px;
+    height: 30px;
+    cursor: pointer;
+  }
+  label {
+    padding: 5px;
+  }
+  option {
+  }
+}
+
+.pagination-buttons {
+  display: flex;
+  justify-content: space-between;
+  button {
+    margin-top: 30px;
+    padding: 4px;
+    border-radius: 5px;
+    background-color: $secondary-color;
+    font-size: 15px;
+    color: white;
+    &:disabled {
+      background-color: $primary-color;
+    }
+  }
+}
+.price-slider {
+  width: 130px;
+
+  label {
+    display: block;
+    padding: 10px;
+  }
+
+  span {
+    display: block;
+    margin-top: 10px;
+    font-size: 14px;
+  }
+  .rc-slider.rc-slider-horizontal {
+    width: 70%;
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+.filter-wrapper {
+  display: flex;
+  justify-content: space-evenly;
+
+  max-height: 0;
+  overflow: hidden;
+  transition: all 0.3s ease;
+
+  &.open {
+    max-height: 500px;
+    padding-bottom: 2rem;
+  }
+}
+
+.filters {
+  padding: 2rem;
+  font-size: 16px;
+  display: flex;
+  justify-content: center;
+
+  .slider-icon {
+    color: white;
+  }
+  .filters-button {
+    border: 2px solid $secondary-color;
+    background-color: $secondary-color;
+    border-radius: 5px;
+    padding: 3px;
+    width: 150px;
+  }
+  .filter-span {
+    color: white;
+    margin-left: 10px;
+  }
 }
