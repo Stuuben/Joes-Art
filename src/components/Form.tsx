@@ -11,7 +11,7 @@ export const Form: React.FC<FormProps> = ({ subject }) => {
         <input
           type="hidden"
           name="_subject"
-          value="Nytt Email!! Wiiihooooo!"
+          value="Nytt mail från Josefin konst!"
           className="input-fields"
         />
 

@@ -21,7 +21,7 @@
   }
   button {
     border-radius: 6px;
-    background-color: rgb(109, 109, 109);
+    background-color: $primary-color; //rgb(109, 109, 109);
     border-color: black;
     color: white;
     cursor: pointer;
@@ -85,11 +85,11 @@
     margin-top: 30px;
     padding: 4px;
     border-radius: 5px;
-    background-color: $secondary-color;
+    background-color: white;
     font-size: 15px;
-    color: white;
+    color: black;
     &:disabled {
-      background-color: $primary-color;
+      background-color: rgb(227, 226, 226);
     }
   }
 }

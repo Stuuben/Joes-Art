@@ -154,7 +154,7 @@ export const Gallery = () => {
             <option value="90x90">90x90 cm</option>
           </select>
         </div>
-        <div className="price-slider">
+        {/*   <div className="price-slider">
           <label htmlFor="price-range">Prisintervall:</label>
           <Slider
             range
@@ -167,7 +167,7 @@ export const Gallery = () => {
           <span>
             {amountRange[0]} SEK - {amountRange[1]} SEK
           </span>
-        </div>
+        </div> */}
       </div>
 
       <div className="image-grid">{allImages}</div>

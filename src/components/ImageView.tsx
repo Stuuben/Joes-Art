@@ -18,26 +18,23 @@ export const ImageView: React.FC = () => {
         alt={image.fields.name}
       ></img>
       <div className="box-divider">
-        <span className="type-names">Storlek:</span>
-        <span> {image.fields.size} cm</span>
+        <span className="type-names">Beskrivning: </span>
+        <span>{image.fields.description}</span>
       </div>
       <div className="box-divider">
         <span className="type-names">Pris: </span>
         <span> {image.fields.price} kr</span>
       </div>
       <div className="box-divider">
+        <span className="type-names">Storlek:</span>
+        <span> {image.fields.size} cm</span>
+      </div>
+
+      <div className="box-divider">
         <span className="type-names">Typ: </span>
         <span> {image.fields.category}</span>
       </div>
-      <div className="box-divider">
-        <span className="type-names">Beskrivning: </span>
-        <span>
-          {image.fields.description} Lorem ipsum dolor sit amet consectetur,
-          adipisicing elit. Est provident et earum, autem aut in corporis
-          itaque, sint ut iure nihil facilis quos labore suscipit officiis ex
-          neque quae sed!
-        </span>
-      </div>
+
       <div className="contact-me">
         <p>Är du intresserad av att köpa?</p>
         <p>

@@ -5,6 +5,7 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
+
   h2 {
     margin-bottom: 0;
   }
@@ -13,7 +14,7 @@
     margin: 5px;
   }
   img {
-    width: 70%;
+    width: 70%; // 40% mdesktop
     border: 2px solid black;
   }
   .description {
