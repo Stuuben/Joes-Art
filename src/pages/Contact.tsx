@@ -8,7 +8,7 @@ export const Contact = () => {
   return (
     <div className="contact-wrapper">
       <div className="contact">
-        <h3>Kontakt</h3>
+        <h2>Kontakt</h2>
         <div className="contact-text">
           Är du intresserad av något här så får du gärna kontakta mig på
           Instagram, mail eller via formuläret.
@@ -32,7 +32,7 @@ export const Contact = () => {
             </div>
           </div>
         </div>
-        <Form></Form>
+        <Form subject={""}></Form>
         <div className="portrait">
           <img src="/public/assets/josefin.png" alt="josefin" />
           <p>/ joes</p>

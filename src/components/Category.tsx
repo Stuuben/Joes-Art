@@ -1,10 +1,11 @@
-import { useEffect, useState } from "react";
-import { IGetImages } from "../pages/Gallery";
+/* import { useEffect, useState } from "react";
+
 import { createClient } from "contentful";
 import { Link } from "react-router-dom";
+import { IGetImages } from "../models/IGetImages";
 
 interface IShowImagesProps {
-  /* images: IGetImages[]; */
+  // images: IGetImages[];
   category: string;
 }
 
@@ -68,3 +69,4 @@ export const Category: React.FC<IShowImagesProps> = ({ category }) => {
     </div>
   );
 };
+ */

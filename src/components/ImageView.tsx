@@ -1,8 +1,7 @@
 import { Link, useLocation } from "react-router-dom";
-import { IGetImages } from "../pages/Gallery";
 import "./ImageView.scss";
 import { Form } from "./Form";
-
+import { IGetImages } from "../models/IGetImages";
 export const ImageView: React.FC = () => {
   const location = useLocation();
   const image: IGetImages = location.state?.image;

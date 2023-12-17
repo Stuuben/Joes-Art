@@ -1,53 +1,43 @@
-/* import { createClient } from "contentful"; */
 import "./Gallery.scss";
-/* import { useEffect, useState } from "react";
-import { ShowImages } from "../components/ShowImages";
-import { Akvarell } from "../components/Akvarell"; */
-import { Category } from "../components/Category";
+import { createClient } from "contentful";
+import { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
+import { IGetImages } from "../models/IGetImages";
+import Slider from "rc-slider";
+import "rc-slider/assets/index.css";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faSliders } from "@fortawesome/free-solid-svg-icons";
 
-/* const ACCESS_KEY = import.meta.env.VITE_REACT_APP_ACCESS_KEY;
+const ACCESS_KEY = import.meta.env.VITE_REACT_APP_ACCESS_KEY;
 const SPACE_KEY = import.meta.env.VITE_REACT_APP_SPACE_KEY;
 
 const client = createClient({
   space: SPACE_KEY,
   environment: "master", // defaults to 'master' if not set
   accessToken: ACCESS_KEY,
-}); */
-
-export interface IGetImages {
-  sys: {
-    id: string;
-  };
-  fields: {
-    title: string;
-    description: string;
-    name: string;
-    price: number;
-    size: string;
-    category: string;
-    isSold: boolean;
-    image: {
-      fields: {
-        description: string;
-        file: {
-          url: string;
-          title: string;
-        };
-      };
-    };
-  };
-}
+});
 
 export const Gallery = () => {
-  /*   const [images, setImages] = useState<IGetImages[]>([]);
+  const [images, setImages] = useState<IGetImages[]>([]);
+  const [filter, setFilter] = useState("");
+  const [page, setPage] = useState(1);
+  const [hasMore, setHasMore] = useState(true);
+  const [amountRange, setAmountRange] = useState([0, 3000]);
+  const [size, setSize] = useState("");
+  const [showFilterOptions, setShowFilterOptions] = useState(false);
 
   useEffect(() => {
     client
       .getEntries({
         content_type: "art",
-             "fields.price[gt]": 600,
-        "fields.category": "Akvarell",
+        "fields.category": `${filter}`,
+        "fields.price[gte]": amountRange[0],
+        "fields.price[lte]": amountRange[1],
+        "fields.size": `${size}`,
+        limit: 6,
+        skip: (page - 1) * 6,
       })
+
       .then((response) => {
         const transformedImages: IGetImages[] = response.items.map((item) => {
           return {
@@ -58,25 +48,142 @@ export const Gallery = () => {
 
         setImages(transformedImages);
 
-        console.log("transformedImages", transformedImages);
-      });
-  }, []); */
+        setHasMore(transformedImages.length == 6);
 
-  /*   const showImages = images.map((image) => (
+        console.log("transformedImages", transformedImages);
+        console.log("hasMore", hasMore);
+        console.log("page", page);
+      });
+  }, [filter, page, amountRange, size]);
+
+  const handleChange = (category: string) => {
+    setFilter(category);
+    setPage(1);
+  };
+  const handleSize = (chosenSize: string) => {
+    setSize(chosenSize);
+  };
+
+  const handlePrevPage = () => {
+    console.log("clicked prevPage");
+    setPage((prevPage) => prevPage - 1);
+  };
+  const handleNextPage = () => {
+    console.log("clicked nextPage");
+    if (hasMore) {
+      setPage((prevPage) => prevPage + 1);
+    }
+  };
+
+  const handlePriceChange = (newRange: number | number[]) => {
+    if (Array.isArray(newRange)) {
+      setAmountRange(newRange);
+    } else {
+      setAmountRange([newRange, amountRange[1]]);
+    }
+  };
+
+  const handleButton = () => {
+    setShowFilterOptions((prevShowFilterOptions) => !prevShowFilterOptions);
+  };
+
+  /*     setFilter((prevFilter) => {
+      const categories = prevFilter.split(",");
+      console.log("categories", categories);
+
+      if (categories.includes(category)) {
+        const updatedFilter = categories
+          .filter((c) => c !== category)
+          .join(",");
+
+        return updatedFilter;
+      } else {
+        return [...categories, category].join(",");
+      }
+    });
+  }; */
+
+  const allImages = images.map((image) => (
     <div className="image-wrapper" key={image.sys.id}>
-      <img
-        className="image-box"
-        src={image.fields.image.fields.file.url}
-        alt={image.fields.title}
-      ></img>
-      <h5 className="titel">{image.fields.name}</h5>
-      <p className="size">{image.fields.size}</p>
-      <p className="price">{image.fields.price}:-</p>
-      <button>Mer infromation</button>
+      <Link to={`/gallery/${image.fields.name}`} state={{ image }}>
+        <div>
+          {image.fields.isSold && <div className="sold-sticker">SÅLD</div>}
+          <img
+            className="image-box"
+            src={image.fields.image.fields.file.url}
+            alt={image.fields.title}
+          />
+        </div>
+        <h5 className="title">{image.fields.name}</h5>
+        <p className="size">{image.fields.size}</p>
+        <p className="price">{image.fields.price}:-</p>
+
+        <button onClick={() => {}}>Mer information</button>
+      </Link>
     </div>
-  )); */
+  ));
 
   return (
+    <div className="gallery-wrapper">
+      <h2>Galleri</h2>
+      <div className="filters">
+        <div onClick={handleButton}>
+          <div className="filters-button">
+            <FontAwesomeIcon className="slider-icon" icon={faSliders} />
+            <span className="filter-span">Filter</span>
+          </div>
+        </div>
+      </div>
+
+      <div className={`filter-wrapper ${showFilterOptions ? "open" : ""}`}>
+        <div className="category-wrapper">
+          <label htmlFor="category">Välj kategori:</label>
+          <select id="category" onChange={(e) => handleChange(e.target.value)}>
+            <option value="">Alla kategorier</option>
+            <option value="Akvarell">Akvarell</option>
+            <option value="Akryl">Akryl</option>
+            <option value="Skulptur">Skulpturer</option>
+          </select>
+        </div>
+
+        <div className="category-wrapper">
+          <label htmlFor="size">Välj storlek:</label>
+          <select id="size" onChange={(e) => handleSize(e.target.value)}>
+            <option value="">Alla storlekar</option>
+            <option value="24x13">24x13 cm</option>
+            <option value="90x90">90x90 cm</option>
+          </select>
+        </div>
+        <div className="price-slider">
+          <label htmlFor="price-range">Prisintervall:</label>
+          <Slider
+            range
+            min={0}
+            max={3000}
+            step={100}
+            value={amountRange}
+            onChangeComplete={handlePriceChange}
+          />
+          <span>
+            {amountRange[0]} SEK - {amountRange[1]} SEK
+          </span>
+        </div>
+      </div>
+
+      <div className="image-grid">{allImages}</div>
+      <div className="pagination-buttons">
+        <button onClick={handlePrevPage} disabled={page === 1}>
+          Föregående sida
+        </button>
+        <button onClick={handleNextPage} disabled={!hasMore}>
+          Nästa sida
+        </button>
+      </div>
+    </div>
+  );
+};
+
+/*   return (
     <div className="gallery-wrapper">
       <h3>Galleri</h3>
 
@@ -88,4 +195,4 @@ export const Gallery = () => {
       <Category category="Skulptur"></Category>
     </div>
   );
-};
+ */
