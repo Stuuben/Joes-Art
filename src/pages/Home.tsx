@@ -4,7 +4,7 @@ export const Home = () => {
   return (
     <div className="main-wrapper">
       <div className="content-wrapper">
-        <h1>Josefin Stuborn</h1>
+        <h3 className="title">Josefin Stuborn</h3>
         <p className="image-p">
           Lorem ipsum dolor sit amet consectetur adipisicing elit. Cupiditate
           sint ipsam, exercitationem voluptates, nihil laborum magnam non
@@ -16,9 +16,8 @@ export const Home = () => {
           <div className="hero-image"></div>
         </div>
         <div>
-          <img src="/public/assets/joes.png" alt="joes" />
+          <img src="/public/assets/JOES.svg" alt="joes" />
         </div>
-        <p className="joes-p">/ joes</p>
       </div>
     </div>
   );

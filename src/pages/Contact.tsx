@@ -16,7 +16,7 @@ export const Contact = () => {
         <div className="icons-wrapper">
           <div className="icons-inner-wrapper">
             <div className="icons-box">
-              <a href={"https://instagram.se"}>
+              <a href={"https://www.instagram.com/j.stuborn/"}>
                 <FontAwesomeIcon
                   className="instagram-icon"
                   icon={faInstagram}
@@ -35,7 +35,14 @@ export const Contact = () => {
         <Form subject={""}></Form>
         <div className="portrait">
           <img src="/public/assets/josefin.png" alt="josefin" />
-          <p>/ joes</p>
+          <div>
+            <img
+              src="/public/assets/JOES.svg"
+              alt="joes"
+              width={"50px"}
+              height={"50px"}
+            />
+          </div>
         </div>
       </div>
     </div>

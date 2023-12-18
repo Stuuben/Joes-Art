@@ -3,7 +3,7 @@ import { createClient } from "contentful";
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { IGetImages } from "../models/IGetImages";
-import Slider from "rc-slider";
+/* import Slider from "rc-slider"; */
 import "rc-slider/assets/index.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faSliders } from "@fortawesome/free-solid-svg-icons";
@@ -22,7 +22,7 @@ export const Gallery = () => {
   const [filter, setFilter] = useState("");
   const [page, setPage] = useState(1);
   const [hasMore, setHasMore] = useState(true);
-  const [amountRange, setAmountRange] = useState([0, 3000]);
+  /*  const [amountRange, setAmountRange] = useState([0, 3000]); */
   const [size, setSize] = useState("");
   const [showFilterOptions, setShowFilterOptions] = useState(false);
 
@@ -31,8 +31,8 @@ export const Gallery = () => {
       .getEntries({
         content_type: "art",
         "fields.category": `${filter}`,
-        "fields.price[gte]": amountRange[0],
-        "fields.price[lte]": amountRange[1],
+        /*        "fields.price[gte]": amountRange[0],
+        "fields.price[lte]": amountRange[1], */
         "fields.size": `${size}`,
         limit: 6,
         skip: (page - 1) * 6,
@@ -54,7 +54,7 @@ export const Gallery = () => {
         console.log("hasMore", hasMore);
         console.log("page", page);
       });
-  }, [filter, page, amountRange, size]);
+  }, [filter, page, /* amountRange, */ size]);
 
   const handleChange = (category: string) => {
     setFilter(category);
@@ -75,13 +75,13 @@ export const Gallery = () => {
     }
   };
 
-  const handlePriceChange = (newRange: number | number[]) => {
+  /*   const handlePriceChange = (newRange: number | number[]) => {
     if (Array.isArray(newRange)) {
       setAmountRange(newRange);
     } else {
       setAmountRange([newRange, amountRange[1]]);
     }
-  };
+  }; */
 
   const handleButton = () => {
     setShowFilterOptions((prevShowFilterOptions) => !prevShowFilterOptions);
