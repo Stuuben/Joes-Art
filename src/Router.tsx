@@ -6,6 +6,7 @@ import { Gallery } from "./pages/Gallery";
 import { Contact } from "./pages/Contact";
 import { ImageView } from "./components/ImageView";
 import { Thanks } from "./pages/Thanks";
+import { AboutMe } from "./pages/AboutMe";
 
 export const router = createBrowserRouter([
   {
@@ -25,6 +26,10 @@ export const router = createBrowserRouter([
       {
         path: "/gallery/:id",
         element: <ImageView></ImageView>,
+      },
+      {
+        path: "/about",
+        element: <AboutMe></AboutMe>,
       },
       {
         path: "/contact",

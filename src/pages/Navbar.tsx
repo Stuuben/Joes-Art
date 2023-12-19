@@ -11,6 +11,9 @@ export const Navbar = () => {
         <Link className="link" to="/gallery">
           GALLERI
         </Link>
+        <Link className="link" to="/about">
+          OM MIG
+        </Link>
         <Link className="link" to="/contact">
           KONTAKT
         </Link>
