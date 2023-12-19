@@ -16,7 +16,7 @@ export const Home = () => {
           <div className="hero-image"></div>
         </div>
         <div>
-          <img src="/public/assets/JOES.svg" alt="joes" />
+          <img src="/assets/JOES.svg" alt="joes" />
         </div>
       </div>
     </div>

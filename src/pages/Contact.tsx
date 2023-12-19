@@ -34,10 +34,10 @@ export const Contact = () => {
         </div>
         <Form subject={""}></Form>
         <div className="portrait">
-          <img src="/public/assets/josefin.png" alt="josefin" />
+          {/*  <img src="../../public/assets/josefin.png" alt="josefin" /> */}
           <div>
             <img
-              src="/public/assets/JOES.svg"
+              src="/assets/JOES.svg"
               alt="joes"
               width={"50px"}
               height={"50px"}
