@@ -16,15 +16,16 @@
   img {
     width: 70%; // 40% mdesktop
     border: 2px solid black;
+    margin-bottom: 16px;
   }
   .description {
     text-align: left;
   }
   .box-divider {
     display: flex;
-
     flex-direction: row;
     width: 70%;
+
     span {
       width: 100%;
       text-align: left;

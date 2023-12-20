@@ -2,12 +2,29 @@
 
 .gallery-wrapper {
   padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .image-wrapper {
   padding-bottom: 1rem;
+  display: flex;
+  flex-direction: column-reverse; // ta bort för att ha bilderna i toppen
+  justify-content: space-between;
+  height: 100%;
+
+  .boxbox {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    align-self: stretch;
+    height: 100%;
+  }
+
   .image-inner {
-    height: 160px;
+    /* min-height: 160px; */
+    flex-grow: 1;
   }
   .image-box {
     width: 100%;
@@ -40,6 +57,11 @@
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 10px;
+  height: 100%;
+
+  @media screen and (min-width: 680px) {
+    width: 80%;
+  }
 }
 
 .sold-sticker {
@@ -68,6 +90,8 @@
   flex-direction: column;
   justify-content: space-around;
   text-align: left;
+  padding-left: 10px;
+  padding-right: 10px;
 
   select {
     width: 120px;
@@ -84,6 +108,8 @@
 .pagination-buttons {
   display: flex;
   justify-content: space-between;
+  width: 80%;
+
   button {
     margin-top: 30px;
     padding: 4px;
@@ -117,7 +143,7 @@
 }
 .filter-wrapper {
   display: flex;
-  justify-content: space-evenly;
+  justify-content: space-between;
 
   max-height: 0;
   overflow: hidden;
@@ -144,6 +170,7 @@
     border-radius: 5px;
     padding: 3px;
     width: 150px;
+    cursor: pointer;
   }
   .filter-span {
     color: white;
