@@ -106,7 +106,7 @@ export const Gallery = () => {
   const allImages = images.map((image) => (
     <div className="image-wrapper" key={image.sys.id}>
       <Link to={`/gallery/${image.fields.name}`} state={{ image }}>
-        <div>
+        <div className="image-inner">
           {image.fields.isSold && <div className="sold-sticker">SÅLD</div>}
           <img
             className="image-box"
@@ -152,6 +152,7 @@ export const Gallery = () => {
             <option value="">Alla storlekar</option>
             <option value="24x13">24x13 cm</option>
             <option value="90x90">90x90 cm</option>
+            <option value="21x29,7">21x29,7 cm</option>
           </select>
         </div>
         {/*   <div className="price-slider">
