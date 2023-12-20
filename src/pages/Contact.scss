@@ -11,9 +11,24 @@
     font-size: 20px;
     margin-top: 2rem;
     margin-bottom: 2rem;
+    @media screen and (min-width: 680px) {
+      width: 80%;
+    }
+    @media screen and (min-width: 1200px) {
+      max-width: 500px;
+    }
   }
   .contact {
     width: 80%;
+    display: flex;
+    flex-direction: column;
+
+    align-items: center;
+    @media screen and (min-width: 680px) {
+      width: 50%;
+    }
+    @media screen and (min-width: 1200px) {
+    }
   }
 
   a {
@@ -39,13 +54,17 @@
     display: flex;
     width: 50%;
   }
+  .form-wrapper {
+    @media screen and (min-width: 680px) {
+      width: 80%;
+    }
+    @media screen and (min-width: 1200px) {
+      max-width: 500px;
+    }
+  }
 
   .portrait {
     margin-top: 3rem;
     padding: 1rem;
-
-    img {
-      width: 50%;
-    }
   }
 }
