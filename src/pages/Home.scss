@@ -43,9 +43,17 @@
 .content-wrapper {
   display: flex;
   flex-direction: column;
+
+  align-items: center;
   height: 100vh;
   width: 85%;
   background-color: rgba(255, 255, 255, 0.868);
+  @media screen and (min-width: 680px) {
+    width: 70%;
+  }
+  @media screen and (min-width: 900px) {
+    width: 50%;
+  }
 }
 
 /* .hero-image {
@@ -66,6 +74,8 @@
   padding-top: 10px;
   border-top: 2px solid $secondary-color;
   border-bottom: 2px solid $secondary-color;
+  @media screen and (min-width: 680px) {
+  }
 }
 
 h2 {
@@ -75,6 +85,9 @@ h2 {
 .image-p {
   padding-left: 1rem;
   padding-right: 1rem;
+  @media screen and (min-width: 680px) {
+    width: 50%;
+  }
 }
 .joes-p {
   padding-top: 2rem;
