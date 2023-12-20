@@ -6,7 +6,7 @@ export const AboutMe = () => {
     <div className="about-wrapper">
       <div className="about-main">
         <h2>Om mig</h2>
-        <div>
+        <div className="about-inner">
           <h3>Josefin Stuborn</h3>
           <img src="/assets/josefin.png" alt="josefin" />
           <p>
@@ -21,7 +21,10 @@ export const AboutMe = () => {
             elit. Tempora fugit, placeat et nihil repellendus sit obcaecati,
           </p>
         </div>
-        <VideoPlayer></VideoPlayer>
+        <div className="video-player">
+          <h4>Skapandet av en av mina verk</h4>
+          <VideoPlayer></VideoPlayer>
+        </div>
       </div>
     </div>
   );

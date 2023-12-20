@@ -1,7 +1,7 @@
 import "./Form.scss";
 
 interface FormProps {
-  subject: string;
+  subject?: string;
 }
 
 export const Form: React.FC<FormProps> = ({ subject }) => {

@@ -9,6 +9,9 @@
   width: 100%;
   background-image: url("/assets/image9.jpg");
   background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+
   h1 {
     text-shadow: 1px 1px 1px $secondary-color;
     // guttman Miryam
@@ -24,8 +27,8 @@
   }
 
   img {
-    width: 40px;
-    height: 40px;
+    width: 35px;
+    height: 35px;
   }
   .event-image {
     width: 300px;
@@ -42,9 +45,17 @@
 .content-wrapper {
   display: flex;
   flex-direction: column;
+
+  align-items: center;
   height: 100vh;
   width: 85%;
   background-color: rgba(255, 255, 255, 0.868);
+  @media screen and (min-width: 680px) {
+    width: 70%;
+  }
+  @media screen and (min-width: 900px) {
+    width: 50%;
+  }
 }
 
 /* .hero-image {
@@ -65,6 +76,8 @@
   padding-top: 10px;
   border-top: 2px solid $secondary-color;
   border-bottom: 2px solid $secondary-color;
+  @media screen and (min-width: 680px) {
+  }
 }
 
 h2 {
@@ -74,6 +87,9 @@ h2 {
 .image-p {
   padding-left: 1rem;
   padding-right: 1rem;
+  @media screen and (min-width: 680px) {
+    width: 50%;
+  }
 }
 .joes-p {
   padding-top: 2rem;

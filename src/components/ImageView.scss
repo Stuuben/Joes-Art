@@ -5,6 +5,13 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  margin: 0 auto;
+  @media screen and (min-width: 680px) {
+    width: 80%;
+  }
+  @media screen and (min-width: 1200px) {
+    max-width: 900px;
+  }
 
   h2 {
     margin-bottom: 0;
@@ -16,23 +23,25 @@
   img {
     width: 70%; // 40% mdesktop
     border: 2px solid black;
+    margin-bottom: 16px;
   }
   .description {
     text-align: left;
   }
   .box-divider {
     display: flex;
-
     flex-direction: row;
     width: 70%;
+
     span {
       width: 100%;
       text-align: left;
       padding-top: 8px;
     }
     .type-names {
-      width: 50%;
+      width: 130px;
       font-size: 15px;
+      font-weight: bold;
     }
   }
   .spacing {

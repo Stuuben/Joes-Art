@@ -19,5 +19,9 @@
     background-color: $secondary-color;
     font-size: 15px;
     color: white;
+    cursor: pointer;
+    &:hover {
+      background-color: rgb(42, 141, 57);
+    }
   }
 }
