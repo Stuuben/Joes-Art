@@ -25,19 +25,49 @@ export const Gallery = () => {
   /*  const [amountRange, setAmountRange] = useState([0, 3000]); */
   const [size, setSize] = useState("");
   const [showFilterOptions, setShowFilterOptions] = useState(false);
+  const [totalFilterdImages, setTotalFilterdImages] = useState<
+    number | undefined
+  >(undefined);
+  const [amountOnPage, setAmountOnPage] = useState<number | undefined>(
+    undefined
+  );
+  const [totalImages, setTotalImages] = useState<number | undefined>(undefined);
+
+  useEffect(() => {
+    client
+      .getEntries({
+        content_type: "art",
+      })
+      .then((response) => {
+        const totalAmountOfImages = response.total;
+        setTotalImages(totalAmountOfImages);
+        console.log(response.total);
+      });
+  }, []);
 
   useEffect(() => {
     client
       .getEntries({
         content_type: "art",
         "fields.category": `${filter}`,
-        /*        "fields.price[gte]": amountRange[0],
-        "fields.price[lte]": amountRange[1], */
+        "fields.size": `${size}`,
+      })
+      .then((response) => {
+        console.log("amountOfIamgs", response.total);
+        const totalAmountOfFilteredImages = response.total;
+        setTotalFilterdImages(totalAmountOfFilteredImages);
+      });
+  }, [filter, size]);
+
+  useEffect(() => {
+    client
+      .getEntries({
+        content_type: "art",
+        "fields.category": `${filter}`,
         "fields.size": `${size}`,
         limit: 6,
         skip: (page - 1) * 6,
       })
-
       .then((response) => {
         const transformedImages: IGetImages[] = response.items.map((item) => {
           return {
@@ -48,13 +78,16 @@ export const Gallery = () => {
 
         setImages(transformedImages);
 
-        setHasMore(transformedImages.length == 6);
+        setHasMore(transformedImages.length === 6);
+
+        const amountOnCurrentPage = transformedImages.length;
+        setAmountOnPage(amountOnCurrentPage);
 
         console.log("transformedImages", transformedImages);
         console.log("hasMore", hasMore);
         console.log("page", page);
       });
-  }, [filter, page, /* amountRange, */ size]);
+  }, [filter, page, size, hasMore]);
 
   const handleChange = (category: string) => {
     setFilter(category);
@@ -70,7 +103,7 @@ export const Gallery = () => {
   };
   const handleNextPage = () => {
     console.log("clicked nextPage");
-    if (hasMore) {
+    if (hasMore && (amountOnPage ?? 0) < (totalFilterdImages ?? 0)) {
       setPage((prevPage) => prevPage + 1);
     }
   };
@@ -174,13 +207,29 @@ export const Gallery = () => {
           </span>
         </div> */}
       </div>
-
+      <div className="total-images">Totalt {totalImages} bilder</div>
       <div className="image-grid">{allImages}</div>
       <div className="pagination-buttons">
         <button onClick={handlePrevPage} disabled={page === 1}>
           Föregående sida
         </button>
-        <button onClick={handleNextPage} disabled={!hasMore}>
+        <div>
+          <span>
+            {/* visas {amountOnPage} av {totalImages} */}
+            visas{" "}
+            {Math.min(
+              (amountOnPage ?? 0) + (page - 1) * 6,
+              totalFilterdImages ?? 0
+            )}{" "}
+            av {totalFilterdImages}
+          </span>
+        </div>
+        <button
+          onClick={handleNextPage}
+          disabled={
+            !hasMore || (amountOnPage ?? 0) >= (totalFilterdImages ?? 0)
+          }
+        >
           Nästa sida
         </button>
       </div>

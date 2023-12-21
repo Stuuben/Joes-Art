@@ -5,6 +5,11 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+  background-color: rgb(247, 247, 247);
+}
+.total-images {
+  width: 100%;
+  text-align: left;
 }
 
 .image-wrapper {
@@ -45,6 +50,7 @@
     border-color: black;
     color: white;
     cursor: pointer;
+    font-size: 12px;
 
     &:hover {
       background-color: rgb(224, 224, 224);
@@ -58,6 +64,10 @@
   grid-template-columns: repeat(3, 1fr);
   gap: 10px;
   height: 100%;
+  background-color: rgb(255, 255, 255);
+
+  padding: 2rem;
+  border-radius: 5px;
 
   @media screen and (min-width: 680px) {
     width: 80%;
@@ -111,7 +121,10 @@
 .pagination-buttons {
   display: flex;
   justify-content: space-between;
-  width: 80%;
+  width: 100%;
+  div {
+    margin-top: 30px;
+  }
   @media screen and (min-width: 680px) {
     width: 80%;
   }
@@ -121,13 +134,14 @@
 
   button {
     margin-top: 30px;
-    padding: 4px;
+    padding: 3px;
     border-radius: 5px;
     background-color: white;
     font-size: 15px;
     color: black;
     &:disabled {
-      background-color: rgb(227, 226, 226);
+      background-color: rgba(154, 153, 153, 0.469);
+      color: rgba(0, 0, 0, 0.224);
     }
   }
 }
