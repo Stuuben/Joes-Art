@@ -35,6 +35,10 @@ export const ImageView: React.FC = () => {
         <span> {image.fields.category}</span>
       </div>
 
+      <div className="box-divider" style={{ paddingTop: "8px" }}>
+        {image.fields.isSold && <div className="sold-sticker">SÅLD</div>}
+      </div>
+
       <div className="contact-me">
         <p>Är du intresserad av att köpa?</p>
         <p>
