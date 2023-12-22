@@ -64,6 +64,11 @@
     }
   }
 }
+.reset-button-wrapper {
+  .reset-button {
+    cursor: pointer;
+  }
+}
 
 .image-grid {
   display: grid;
@@ -170,8 +175,15 @@
     margin-right: auto;
   }
 }
+
+.category-divider {
+  display: flex;
+  flex-direction: row;
+}
+
 .filter-wrapper {
   display: flex;
+  flex-direction: column;
   justify-content: space-between;
 
   max-height: 0;
@@ -181,6 +193,10 @@
   &.open {
     max-height: 500px;
     padding-bottom: 2rem;
+  }
+  @media screen and (min-width: 680px) {
+    display: flex;
+    flex-direction: row;
   }
 }
 

@@ -1,6 +1,7 @@
 export interface IGetImages {
   sys: {
     id: string;
+    createdAt: string;
   };
   fields: {
     title: string;

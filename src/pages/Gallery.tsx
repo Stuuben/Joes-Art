@@ -24,6 +24,8 @@ export const Gallery = () => {
   const [hasMore, setHasMore] = useState(true);
   /*  const [amountRange, setAmountRange] = useState([0, 3000]); */
   const [size, setSize] = useState("");
+  const [sold, setSold] = useState<boolean | undefined>(undefined);
+  const [sortOrder, setSortOrder] = useState<"asc" | "desc">("desc");
   const [showFilterOptions, setShowFilterOptions] = useState(false);
   const [totalFilterdImages, setTotalFilterdImages] = useState<
     number | undefined
@@ -65,10 +67,14 @@ export const Gallery = () => {
         content_type: "art",
         "fields.category": `${filter}`,
         "fields.size": `${size}`,
+        "fields.isSold": sold,
+        order: [`${sortOrder === "desc" ? "-" : ""}sys.createdAt`],
         limit: 6,
         skip: (page - 1) * 6,
       })
       .then((response) => {
+        console.log(response);
+
         const transformedImages: IGetImages[] = response.items.map((item) => {
           return {
             sys: item.sys,
@@ -87,7 +93,7 @@ export const Gallery = () => {
         console.log("hasMore", hasMore);
         console.log("page", page);
       });
-  }, [filter, page, size, hasMore]);
+  }, [filter, page, size, hasMore, sold, sortOrder]);
 
   const handleChange = (category: string) => {
     setFilter(category);
@@ -95,6 +101,12 @@ export const Gallery = () => {
   };
   const handleSize = (chosenSize: string) => {
     setSize(chosenSize);
+  };
+  const handleSold = (sold: string | undefined) => {
+    setSold(sold === "true" ? true : sold === "false" ? false : undefined);
+  };
+  const handleSortOrder = (order: "asc" | "desc") => {
+    setSortOrder(order);
   };
 
   const handlePrevPage = () => {
@@ -108,6 +120,33 @@ export const Gallery = () => {
     }
   };
 
+  const handleButton = () => {
+    setShowFilterOptions((prevShowFilterOptions) => !prevShowFilterOptions);
+  };
+
+  const handleResetButton = () => {
+    setFilter("");
+    setSize("");
+    setSold(undefined);
+    setSortOrder("desc");
+
+    const categoryDropdown = document.getElementById(
+      "category"
+    ) as HTMLSelectElement;
+    categoryDropdown.value = "";
+
+    const sizeDropdown = document.getElementById("size") as HTMLSelectElement;
+    sizeDropdown.value = "";
+
+    const soldDropdown = document.getElementById("sold") as HTMLSelectElement;
+    soldDropdown.value = "";
+
+    const sortOrderDropdown = document.getElementById(
+      "sortOrder"
+    ) as HTMLSelectElement;
+    sortOrderDropdown.value = "desc";
+  };
+
   /*   const handlePriceChange = (newRange: number | number[]) => {
     if (Array.isArray(newRange)) {
       setAmountRange(newRange);
@@ -115,10 +154,6 @@ export const Gallery = () => {
       setAmountRange([newRange, amountRange[1]]);
     }
   }; */
-
-  const handleButton = () => {
-    setShowFilterOptions((prevShowFilterOptions) => !prevShowFilterOptions);
-  };
 
   /*     setFilter((prevFilter) => {
       const categories = prevFilter.split(",");
@@ -173,25 +208,55 @@ export const Gallery = () => {
       </div>
 
       <div className={`filter-wrapper ${showFilterOptions ? "open" : ""}`}>
-        <div className="category-wrapper">
-          <label htmlFor="category">Välj kategori:</label>
-          <select id="category" onChange={(e) => handleChange(e.target.value)}>
-            <option value="">Alla kategorier</option>
-            <option value="Akvarell">Akvarell</option>
-            <option value="Akryl">Akryl</option>
-            <option value="Skulptur">Skulpturer</option>
-          </select>
+        <div className="category-divider">
+          <div className="category-wrapper">
+            <label htmlFor="category">Välj kategori:</label>
+            <select
+              id="category"
+              onChange={(e) => handleChange(e.target.value)}
+            >
+              <option value="">Alla kategorier</option>
+              <option value="Akvarell">Akvarell</option>
+              <option value="Akryl">Akryl</option>
+              <option value="Skulptur">Skulpturer</option>
+            </select>
+          </div>
+
+          <div className="category-wrapper">
+            <label htmlFor="size">Välj storlek:</label>
+            <select id="size" onChange={(e) => handleSize(e.target.value)}>
+              <option value="">Alla storlekar</option>
+              <option value="24x13">24x13 cm</option>
+              <option value="90x90">90x90 cm</option>
+              <option value="21x29,7">21x29,7 cm</option>
+            </select>
+          </div>
         </div>
 
-        <div className="category-wrapper">
-          <label htmlFor="size">Välj storlek:</label>
-          <select id="size" onChange={(e) => handleSize(e.target.value)}>
-            <option value="">Alla storlekar</option>
-            <option value="24x13">24x13 cm</option>
-            <option value="90x90">90x90 cm</option>
-            <option value="21x29,7">21x29,7 cm</option>
-          </select>
+        <div className="category-divider">
+          <div className="category-wrapper">
+            <label htmlFor="sold">Välj såld:</label>
+            <select id="sold" onChange={(e) => handleSold(e.target.value)}>
+              <option value="">Alla</option>
+              <option value="true">Såld</option>
+              <option value="false">Ej såld</option>
+            </select>
+          </div>
+
+          <div className="category-wrapper">
+            <label htmlFor="sortOrder">Välj sortering:</label>
+            <select
+              id="sortOrder"
+              onChange={(e) =>
+                handleSortOrder(e.target.value as "asc" | "desc")
+              }
+            >
+              <option value="desc">Nyast först</option>
+              <option value="asc">Äldst först</option>
+            </select>
+          </div>
         </div>
+
         {/*   <div className="price-slider">
           <label htmlFor="price-range">Prisintervall:</label>
           <Slider
@@ -207,7 +272,14 @@ export const Gallery = () => {
           </span>
         </div> */}
       </div>
+      <div className={`filter-wrapper ${showFilterOptions ? "open" : ""}`}>
+        <button className="reset-button" onClick={handleResetButton}>
+          Rensa filter
+        </button>
+      </div>
+
       <div className="total-images">Totalt {totalImages} bilder</div>
+
       <div className="image-grid">{allImages}</div>
       <div className="pagination-buttons">
         <button onClick={handlePrevPage} disabled={page === 1}>
