@@ -281,11 +281,16 @@ export const Gallery = () => {
       <div className="total-images">Totalt {totalImages} bilder</div>
 
       <div className="image-grid">{allImages}</div>
-      <div className="pagination-buttons">
-        <button onClick={handlePrevPage} disabled={page === 1}>
+
+      <div className="pagination-buttons-wrapper">
+        <button
+          className="pagination-buttons"
+          onClick={handlePrevPage}
+          disabled={page === 1}
+        >
           Föregående sida
         </button>
-        <div>
+        <div className="pagination-text">
           <span>
             {/* visas {amountOnPage} av {totalImages} */}
             visas{" "}
@@ -297,6 +302,7 @@ export const Gallery = () => {
           </span>
         </div>
         <button
+          className="pagination-buttons"
           onClick={handleNextPage}
           disabled={
             !hasMore || (amountOnPage ?? 0) >= (totalFilterdImages ?? 0)

@@ -1,0 +1,22 @@
+@import "../scss/variables";
+
+.footer-wrapper {
+  display: flex;
+  flex-direction: column;
+  background-color: $primary-color;
+  min-height: 100px;
+  width: 100%;
+  img {
+    padding: 2rem;
+  }
+}
+
+.footer-links {
+  padding: 1rem;
+  a {
+    color: black;
+    font-size: 16px;
+    padding: 1rem;
+    text-decoration: none;
+  }
+}

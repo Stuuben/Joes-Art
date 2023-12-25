@@ -6,6 +6,7 @@
   flex-direction: column;
   align-items: center;
   background-color: rgb(247, 247, 247);
+  min-height: 91vh;
 }
 .total-images {
   width: 100%;
@@ -39,6 +40,7 @@
   }
   .image-box {
     width: 100%;
+    padding: 0;
   }
   a {
     text-decoration: none;
@@ -77,11 +79,14 @@
   height: 100%;
   background-color: rgb(255, 255, 255);
 
-  padding: 2rem;
+  // padding: 2rem;
+  padding-top: 2rem;
+  padding-bottom: 2rem;
   border-radius: 5px;
 
   @media screen and (min-width: 680px) {
     width: 80%;
+    padding: 2rem;
   }
   @media screen and (min-width: 1200px) {
     max-width: 1000px;
@@ -129,13 +134,15 @@
   }
 }
 
-.pagination-buttons {
+.pagination-buttons-wrapper {
   display: flex;
   justify-content: space-between;
   width: 100%;
-  div {
-    margin-top: 30px;
-  }
+  padding-top: 1rem;
+  padding-bottom: 30px;
+  /*   .pagination-text {
+    // padding-top: 30px;
+  } */
   @media screen and (min-width: 680px) {
     width: 80%;
   }
@@ -143,8 +150,8 @@
     max-width: 1000px;
   }
 
-  button {
-    margin-top: 30px;
+  .pagination-buttons {
+    // margin-top: 30px;
     padding: 3px;
     border-radius: 5px;
     background-color: white;
