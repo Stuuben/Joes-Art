@@ -22,7 +22,7 @@ export const AboutMe = () => {
           </p>
         </div>
         <div className="video-player">
-          <h4>Skapandet av en av mina verk</h4>
+          <h4>Skapandet av ett av mina verk</h4>
           <VideoPlayer></VideoPlayer>
         </div>
       </div>

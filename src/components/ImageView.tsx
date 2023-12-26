@@ -1,16 +1,36 @@
-import { Link, useLocation } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import "./ImageView.scss";
 import { Form } from "./Form";
 import { IGetImages } from "../models/IGetImages";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faTurnDown } from "@fortawesome/free-solid-svg-icons";
+import { useEffect } from "react";
+
 export const ImageView: React.FC = () => {
   const location = useLocation();
+  const navigate = useNavigate();
+
   const image: IGetImages = location.state?.image;
 
-  // Now you have access to the image object in the state
   console.log("image in ImageView", image);
+
+  const goBackToGallery = () => {
+    navigate(-1);
+  };
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
 
   return (
     <div className="view-wrapper">
+      <div className="return-icon-wrapper">
+        <FontAwesomeIcon
+          className="return-icon"
+          icon={faTurnDown}
+          onClick={goBackToGallery}
+        />
+      </div>
       <h2>{image.fields.name}</h2>
       <img
         className="img-view"
