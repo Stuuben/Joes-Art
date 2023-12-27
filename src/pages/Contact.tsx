@@ -33,8 +33,8 @@ export const Contact = () => {
           </div>
         </div>
         <Form></Form>
-        <div className="portrait">
-          {/*  <img src="../../public/assets/josefin.png" alt="josefin" /> */}
+        {/*      {  <div className="portrait">
+        
           <div>
             <img
               src="/assets/JOES.svg"
@@ -43,7 +43,7 @@ export const Contact = () => {
               height={"35px"}
             />
           </div>
-        </div>
+        </div>} */}
       </div>
     </div>
   );
