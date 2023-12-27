@@ -24,14 +24,14 @@
   display: flex;
   flex-direction: column-reverse; // ta bort för att ha bilderna i toppen
   justify-content: space-between;
-  height: 100%;
+  // height: 100%;
 
   .boxbox {
     display: flex;
     flex-direction: column;
     flex: 1;
     align-self: stretch;
-    height: 100%;
+    // height: 100%;
   }
 
   .image-inner {
@@ -76,7 +76,7 @@
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 10px;
-  height: 100%;
+  // height: 100%;
   background-color: rgb(255, 255, 255);
 
   // padding: 2rem;
@@ -140,6 +140,8 @@
   width: 100%;
   padding-top: 1rem;
   padding-bottom: 30px;
+
+  border: 1px solid black;
   /*   .pagination-text {
     // padding-top: 30px;
   } */
