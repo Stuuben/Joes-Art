@@ -1,4 +1,4 @@
-/* export interface IImage {
+export interface IImage {
   id: number;
   titel: string;
   url: string;
@@ -81,4 +81,3 @@ export const allImages: IImage[] = [
     size: "24x13",
   },
 ];
- */
