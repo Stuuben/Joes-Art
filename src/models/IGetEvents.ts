@@ -6,6 +6,9 @@ export interface IGetEvents {
     title: string;
     description: string;
     image: {
+      sys: {
+        createdAt: string;
+      };
       fields: {
         description: string;
 

@@ -15,6 +15,7 @@ export interface IGetNews {
     image: {
       sys: {
         id: string;
+        createdAt: string;
       };
       fields: {
         title: string;

@@ -18,6 +18,7 @@ export const Events = () => {
     client
       .getEntries({
         content_type: "event",
+        order: ["-sys.createdAt"],
       })
       .then((response) => {
         const transformedEvents = response.items.map((item) => {

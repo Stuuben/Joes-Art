@@ -21,6 +21,7 @@ export const NewsSlider = () => {
     client
       .getEntries({
         content_type: "news",
+        order: ["-sys.createdAt"],
       })
       .then((response) => {
         const transformedNews = response.items.map((item) => {
