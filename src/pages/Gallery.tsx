@@ -1,19 +1,18 @@
 import "./Gallery.scss";
 import { createClient } from "contentful";
 import { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
 import { IGetImages } from "../models/IGetImages";
-/* import Slider from "rc-slider"; */
-import "rc-slider/assets/index.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faSliders } from "@fortawesome/free-solid-svg-icons";
+import { Dropdown } from "../components/Dropdown";
+import { GalleryImage } from "../components/GalleryImage";
 
 const ACCESS_KEY = import.meta.env.VITE_REACT_APP_ACCESS_KEY;
 const SPACE_KEY = import.meta.env.VITE_REACT_APP_SPACE_KEY;
 
 const client = createClient({
   space: SPACE_KEY,
-  environment: "master", // defaults to 'master' if not set
+  environment: "master",
   accessToken: ACCESS_KEY,
 });
 
@@ -22,7 +21,6 @@ export const Gallery = () => {
   const [filter, setFilter] = useState("");
   const [page, setPage] = useState(1);
   const [hasMore, setHasMore] = useState(true);
-  /*  const [amountRange, setAmountRange] = useState([0, 3000]); */
   const [size, setSize] = useState("");
   const [sold, setSold] = useState<boolean | undefined>(undefined);
   const [sortOrder, setSortOrder] = useState<"asc" | "desc">("desc");
@@ -90,8 +88,6 @@ export const Gallery = () => {
         setAmountOnPage(amountOnCurrentPage);
 
         console.log("transformedImages", transformedImages);
-        console.log("hasMore", hasMore);
-        console.log("page", page);
       });
   }, [filter, page, size, hasMore, sold, sortOrder]);
 
@@ -147,52 +143,8 @@ export const Gallery = () => {
     sortOrderDropdown.value = "desc";
   };
 
-  /*   const handlePriceChange = (newRange: number | number[]) => {
-    if (Array.isArray(newRange)) {
-      setAmountRange(newRange);
-    } else {
-      setAmountRange([newRange, amountRange[1]]);
-    }
-  }; */
-
-  /*     setFilter((prevFilter) => {
-      const categories = prevFilter.split(",");
-      console.log("categories", categories);
-
-      if (categories.includes(category)) {
-        const updatedFilter = categories
-          .filter((c) => c !== category)
-          .join(",");
-
-        return updatedFilter;
-      } else {
-        return [...categories, category].join(",");
-      }
-    });
-  }; */
-
   const allImages = images.map((image) => (
-    <div className="image-wrapper" key={image.sys.id}>
-      <Link to={`/gallery/${image.fields.name}`} state={{ image }}>
-        <div className="boxbox">
-          <div className="image-inner">
-            {image.fields.isSold && <div className="sold-sticker">SÅLD</div>}
-            <img
-              className="image-box"
-              src={image.fields.image.fields.file.url}
-              alt={image.fields.title}
-            />
-          </div>
-          <div className="image-desc">
-            <h5 className="title">{image.fields.name}</h5>
-            <p className="size">{image.fields.size}</p>
-            <p className="price">{image.fields.price}:-</p>
-
-            <button onClick={() => {}}>Mer information</button>
-          </div>
-        </div>
-      </Link>
-    </div>
+    <GalleryImage key={image.sys.id} image={image} />
   ));
 
   return (
@@ -209,68 +161,51 @@ export const Gallery = () => {
 
       <div className={`filter-wrapper ${showFilterOptions ? "open" : ""}`}>
         <div className="category-divider">
-          <div className="category-wrapper">
-            <label htmlFor="category">Välj kategori:</label>
-            <select
-              id="category"
-              onChange={(e) => handleChange(e.target.value)}
-            >
-              <option value="">Alla kategorier</option>
-              <option value="Akvarell">Akvarell</option>
-              <option value="Akryl">Akryl</option>
-              <option value="Skulptur">Skulpturer</option>
-            </select>
-          </div>
+          <Dropdown
+            label="Välj Kategori"
+            options={[
+              { label: "Alla kategorier", value: "" },
+              { label: "Akvarell", value: "Akvarell" },
+              { label: "Akryl", value: "Akryl" },
+              { label: "Skulpturer", value: "Skulptur" },
+            ]}
+            onChange={(value) => handleChange(value)}
+          />
 
-          <div className="category-wrapper">
-            <label htmlFor="size">Välj storlek:</label>
-            <select id="size" onChange={(e) => handleSize(e.target.value)}>
-              <option value="">Alla storlekar</option>
-              <option value="24x13">24x13 cm</option>
-              <option value="90x90">90x90 cm</option>
-              <option value="21x29,7">21x29,7 cm</option>
-            </select>
-          </div>
+          <Dropdown
+            label="Välj Storlek"
+            options={[
+              { label: "Alla storlekar", value: "" },
+              { label: "24x13 cm", value: "24x13" },
+              { label: "90x90 cm", value: "90x90" },
+              { label: "21x29,7 cm", value: "21x29,7" },
+            ]}
+            onChange={(value) => handleSize(value)}
+          />
         </div>
 
         <div className="category-divider">
-          <div className="category-wrapper">
-            <label htmlFor="sold">Välj såld:</label>
-            <select id="sold" onChange={(e) => handleSold(e.target.value)}>
-              <option value="">Alla</option>
-              <option value="true">Såld</option>
-              <option value="false">Ej såld</option>
-            </select>
-          </div>
+          <Dropdown
+            label={"Välj Såld"}
+            options={[
+              { label: "Alla", value: "" },
+              { label: "Såld", value: "true" },
+              { label: "Ej såld", value: "false" },
+            ]}
+            onChange={(value) => handleSold(value)}
+          ></Dropdown>
 
-          <div className="category-wrapper">
-            <label htmlFor="sortOrder">Välj sortering:</label>
-            <select
-              id="sortOrder"
-              onChange={(e) =>
-                handleSortOrder(e.target.value as "asc" | "desc")
-              }
-            >
-              <option value="desc">Nyast först</option>
-              <option value="asc">Äldst först</option>
-            </select>
-          </div>
+          <Dropdown
+            label={"Väljs Sortering"}
+            options={[
+              { label: "Nyast först", value: "desc" },
+              { label: "Äldst först", value: "asc" },
+            ]}
+            onChange={(value: string) =>
+              handleSortOrder(value as "desc" | "asc")
+            }
+          ></Dropdown>
         </div>
-
-        {/*   <div className="price-slider">
-          <label htmlFor="price-range">Prisintervall:</label>
-          <Slider
-            range
-            min={0}
-            max={3000}
-            step={100}
-            value={amountRange}
-            onChangeComplete={handlePriceChange}
-          />
-          <span>
-            {amountRange[0]} SEK - {amountRange[1]} SEK
-          </span>
-        </div> */}
       </div>
       <div className={`filter-wrapper ${showFilterOptions ? "open" : ""}`}>
         <button className="reset-button" onClick={handleResetButton}>
@@ -292,7 +227,6 @@ export const Gallery = () => {
         </button>
         <div className="pagination-text">
           <span>
-            {/* visas {amountOnPage} av {totalImages} */}
             visas{" "}
             {Math.min(
               (amountOnPage ?? 0) + (page - 1) * 6,
@@ -314,17 +248,3 @@ export const Gallery = () => {
     </div>
   );
 };
-
-/*   return (
-    <div className="gallery-wrapper">
-      <h3>Galleri</h3>
-
-      <h4 className="categories-name">Akvarell</h4>
-      <Category category="Akvarell"></Category>
-      <h4 className="categories-name">Akryl</h4>
-      <Category category="Akryl"></Category>
-      <h4 className="categories-name">Skulpturer</h4>
-      <Category category="Skulptur"></Category>
-    </div>
-  );
- */
