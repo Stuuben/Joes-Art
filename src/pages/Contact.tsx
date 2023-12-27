@@ -21,14 +21,16 @@ export const Contact = () => {
                   className="instagram-icon"
                   icon={faInstagram}
                 />
+
+                <p className="link-p">j.stuborn</p>
               </a>
-              <p>j.stuborn</p>
             </div>
             <div className="icons-box">
               <a href={"mailto:j.stuborn@hotmail.com"}>
                 <FontAwesomeIcon icon={faEnvelopeSquare} />
+
+                <p className="link-p">j.stuborn@hotmail.com</p>
               </a>
-              <p>j.stuborn@hotmail.com</p>
             </div>
           </div>
         </div>
