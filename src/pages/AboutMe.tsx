@@ -1,4 +1,4 @@
-import { VideoPlayer } from "../components/VideoPlayer";
+// import { VideoPlayer } from "../components/VideoPlayer";
 import "./AboutMe.scss";
 
 export const AboutMe = () => {
@@ -8,23 +8,33 @@ export const AboutMe = () => {
         <h2>Om mig</h2>
         <div className="about-inner">
           <h3>Josefin Stuborn</h3>
-          <img src="/assets/josefin.png" alt="josefin" />
-          <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Ab optio
-            quas, ipsum voluptate nam molestias modi! Similique quisquam
-            architecto, obcaecati doloribus mollitia aperiam atque nesciunt?
-            Veniam reiciendis alias numquam excepturi?
-          </p>
+          <img src="/assets/josefin-profile.jpg" alt="josefin" />
 
           <p>
-            Utbildning: Lorem, ipsum dolor sit amet consectetur adipisicing
-            elit. Tempora fugit, placeat et nihil repellendus sit obcaecati,
+            Hej! Mitt namn är Josefin Stuborn och på den här hemsidan kommer ni
+            hitta min konst av olika slag. Jag är 33 år, har en partner, en son
+            och en katt.
+            <br />
+            <br />
+            Jag är en person som mår väldigt bra av att göra praktiska och
+            kreativa saker. Att få vara kreativ är det bästa jag vet. Måla,
+            pyssla, bygga, skulptera, inreda och många fler områden trivs jag i.
+            <br />
+            <br />
+            Jag har gått en förberedande konstskola i Stockholm och haft några
+            utställningar de senaste 7 åren. På den här sidan kommer ni hitta
+            kreativa ting på olika områden. Men framförallt kommer det dyka upp
+            målningar. De flesta kommer vara i akvarell eller akryl.
+            <br />
+            <br />
+            Hoppas att er vistelse här blir/har varit inspirerande och att ni
+            vill titta förbi igen någon gång!
           </p>
         </div>
-        <div className="video-player">
+        {/*   <div className="video-player">
           <h4>Skapandet av ett av mina verk</h4>
           <VideoPlayer></VideoPlayer>
-        </div>
+        </div> */}
       </div>
     </div>
   );
