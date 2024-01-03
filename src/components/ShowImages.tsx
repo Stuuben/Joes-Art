@@ -1,5 +1,3 @@
-/* import { IGetImages } from "../pages/Gallery"; */
-
 import { IGetImages } from "../models/IGetImages";
 
 interface IShowImagesProps {
@@ -7,10 +5,7 @@ interface IShowImagesProps {
   category: string;
 }
 
-export const ShowImages: React.FC<IShowImagesProps> = ({
-  category,
-  images,
-}) => {
+export const ShowImages = ({ category, images }: IShowImagesProps) => {
   const filteredImages = images.filter(
     (image) => image.fields.category === category
   );

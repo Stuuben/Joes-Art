@@ -4,7 +4,7 @@ interface FormProps {
   subject?: string;
 }
 
-export const Form: React.FC<FormProps> = ({ subject }) => {
+export const Form = ({ subject }: FormProps) => {
   return (
     <div className="form-wrapper">
       <form action="https://formsubmit.co/a.stuborn@gmail.com" method="POST">

@@ -1,4 +1,3 @@
-// import { VideoPlayer } from "../components/VideoPlayer";
 import "./AboutMe.scss";
 
 export const AboutMe = () => {
@@ -31,10 +30,6 @@ export const AboutMe = () => {
             vill titta förbi igen någon gång!
           </p>
         </div>
-        {/*   <div className="video-player">
-          <h4>Skapandet av ett av mina verk</h4>
-          <VideoPlayer></VideoPlayer>
-        </div> */}
       </div>
     </div>
   );

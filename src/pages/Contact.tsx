@@ -35,17 +35,6 @@ export const Contact = () => {
           </div>
         </div>
         <Form></Form>
-        {/*      {  <div className="portrait">
-        
-          <div>
-            <img
-              src="/assets/JOES.svg"
-              alt="joes"
-              width={"35px"}
-              height={"35px"}
-            />
-          </div>
-        </div>} */}
       </div>
     </div>
   );

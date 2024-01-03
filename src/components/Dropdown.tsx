@@ -1,4 +1,4 @@
-import { FC, ChangeEvent } from "react";
+import { ChangeEvent } from "react";
 
 interface DropdownProps {
   label: string;
@@ -6,7 +6,7 @@ interface DropdownProps {
   onChange: (value: string) => void;
 }
 
-export const Dropdown: FC<DropdownProps> = ({ label, options, onChange }) => {
+export const Dropdown = ({ label, options, onChange }: DropdownProps) => {
   return (
     <div className="category-wrapper">
       <label htmlFor={label}>{label}:</label>

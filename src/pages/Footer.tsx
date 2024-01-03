@@ -20,6 +20,5 @@ export const Footer = () => {
         <Link to={"/contact"}>KONTAKT</Link>
       </div>
     </div>
-    // </div>
   );
 };

@@ -1,4 +1,3 @@
-import React from "react";
 import { Link } from "react-router-dom";
 import { IGetImages } from "../models/IGetImages";
 
@@ -6,7 +5,7 @@ interface GalleryImageProps {
   image: IGetImages;
 }
 
-export const GalleryImage: React.FC<GalleryImageProps> = ({ image }) => (
+export const GalleryImage = ({ image }: GalleryImageProps) => (
   <div className="image-wrapper" key={image.sys.id}>
     <Link to={`/gallery/${image.fields.name}`} state={{ image }}>
       <div className="boxbox">
@@ -14,7 +13,7 @@ export const GalleryImage: React.FC<GalleryImageProps> = ({ image }) => (
           {image.fields.isSold && <div className="sold-sticker">SÅLD</div>}
           <img
             className="image-box"
-            src={image.fields.image.fields.file.url}
+            src={image.fields.image?.fields?.file?.url}
             alt={image.fields.title}
           />
         </div>

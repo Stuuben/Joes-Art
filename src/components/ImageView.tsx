@@ -3,10 +3,10 @@ import "./ImageView.scss";
 import { Form } from "./Form";
 import { IGetImages } from "../models/IGetImages";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faTurnDown } from "@fortawesome/free-solid-svg-icons";
+import { faArrowLeft } from "@fortawesome/free-solid-svg-icons";
 import { useEffect } from "react";
 
-export const ImageView: React.FC = () => {
+export const ImageView = () => {
   const location = useLocation();
   const navigate = useNavigate();
 
@@ -27,7 +27,7 @@ export const ImageView: React.FC = () => {
       <div className="return-icon-wrapper">
         <FontAwesomeIcon
           className="return-icon"
-          icon={faTurnDown}
+          icon={faArrowLeft}
           onClick={goBackToGallery}
         />
       </div>

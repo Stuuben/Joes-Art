@@ -28,7 +28,8 @@
     background-color: rgba(255, 255, 255, 0.818);
 
     align-items: center;
-    height: 100vh;
+    // height: 100vh;
+    padding-bottom: 3rem;
     @media screen and (min-width: 680px) {
       width: 50%;
     }

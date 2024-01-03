@@ -67,8 +67,8 @@ export const Gallery = () => {
         "fields.size": `${size}`,
         "fields.isSold": sold,
         order: [`${sortOrder === "desc" ? "-" : ""}sys.createdAt`],
-        limit: 6,
-        skip: (page - 1) * 6,
+        limit: 9,
+        skip: (page - 1) * 9,
       })
       .then((response) => {
         console.log(response);
@@ -82,7 +82,7 @@ export const Gallery = () => {
 
         setImages(transformedImages);
 
-        setHasMore(transformedImages.length === 6);
+        setHasMore(transformedImages.length === 9);
 
         const amountOnCurrentPage = transformedImages.length;
         setAmountOnPage(amountOnCurrentPage);
@@ -229,7 +229,7 @@ export const Gallery = () => {
           <span>
             visas{" "}
             {Math.min(
-              (amountOnPage ?? 0) + (page - 1) * 6,
+              (amountOnPage ?? 0) + (page - 1) * 9,
               totalFilterdImages ?? 0
             )}{" "}
             av {totalFilterdImages}
