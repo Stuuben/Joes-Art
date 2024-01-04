@@ -129,18 +129,22 @@ export const Gallery = () => {
     setSortOrder("desc");
 
     const categoryDropdown = document.getElementById(
-      "category"
+      "Välj Kategori"
     ) as HTMLSelectElement;
     categoryDropdown.value = "";
 
-    const sizeDropdown = document.getElementById("size") as HTMLSelectElement;
+    const sizeDropdown = document.getElementById(
+      "Välj Storlek"
+    ) as HTMLSelectElement;
     sizeDropdown.value = "";
 
-    const soldDropdown = document.getElementById("sold") as HTMLSelectElement;
+    const soldDropdown = document.getElementById(
+      "Välj Såld"
+    ) as HTMLSelectElement;
     soldDropdown.value = "";
 
     const sortOrderDropdown = document.getElementById(
-      "sortOrder"
+      "Välj Sortering"
     ) as HTMLSelectElement;
     sortOrderDropdown.value = "desc";
   };
@@ -198,7 +202,7 @@ export const Gallery = () => {
           ></Dropdown>
 
           <Dropdown
-            label={"Väljs Sortering"}
+            label={"Välj Sortering"}
             options={[
               { label: "Nyast först", value: "desc" },
               { label: "Äldst först", value: "asc" },

@@ -47,7 +47,7 @@ export const ImageView = () => {
       </div>
       <div className="box-divider">
         <span className="type-names">Storlek:</span>
-        <span> {image.fields.size} cm</span>
+        {image.fields.size && <span>{image.fields.size} cm</span>}
       </div>
 
       <div className="box-divider">
