@@ -108,12 +108,14 @@ export const Gallery = () => {
   const handlePrevPage = () => {
     console.log("clicked prevPage");
     setPage((prevPage) => prevPage - 1);
+    window.scrollTo(0, 0);
   };
   const handleNextPage = () => {
     console.log("clicked nextPage");
     if (hasMore && (amountOnPage ?? 0) < (totalFilterdImages ?? 0)) {
       setPage((prevPage) => prevPage + 1);
     }
+    window.scrollTo(0, 0);
   };
 
   const handleButton = () => {
