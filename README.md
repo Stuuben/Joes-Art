@@ -1,7 +1,9 @@
-# Josefin Stuborn
+
 
 <!-- PROJECT LOGO -->
-<img src="./public/assets/JOESwhite.svg">
+<div align="center">
+<img align="center" src="./public/assets/JOESwhite.svg" height="200px" width="200px">
+</div>
 <br />
 <p align="center">
 
