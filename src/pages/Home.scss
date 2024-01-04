@@ -4,7 +4,6 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
-
   align-items: center;
   width: 100%;
   background-image: url("/assets/image9.jpg");
@@ -13,14 +12,12 @@
   background-size: cover;
 
   h1 {
-    text-shadow: 1px 1px 1px $secondary-color;
-    // guttman Miryam
+    text-shadow: 1px 1px 1px $primary-color;
   }
   .title {
     font-family: "Hind Madurai", sans-serif;
   }
-  h3 {
-  }
+
   h4 {
     margin-bottom: 5px;
     margin-top: 10px;
@@ -68,24 +65,12 @@ video {
   }
 }
 
-/* .hero-image {
-  width: 400px;
-  height: 300px;
-    background-image: url("/public/assets/event.png");
-  background-position: center;
-  background-size: contain;
-  background-repeat: no-repeat;
-  border: 5px solid rgb(101, 91, 126);
-} */
-
 .hero-image-wrapper {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  /*  padding: 2rem; */
   padding-top: 10px;
-  border-top: 2px solid $secondary-color;
-  // border-bottom: 2px solid $secondary-color;
+  border-top: 2px solid $primary-color;
   margin-bottom: 1rem;
   @media screen and (min-width: 680px) {
   }
@@ -114,9 +99,7 @@ h2 {
   flex-direction: column;
   justify-content: center;
   border-top: 2px solid $primary-color;
-
   width: 320px;
-
   margin-bottom: 4rem;
 
   .slick-prev:before,
@@ -124,8 +107,6 @@ h2 {
     color: rgb(143, 146, 144);
   }
 
-  .slide-wrapper {
-  }
   .news-wrapper {
     display: flex;
     flex-direction: column;
@@ -143,7 +124,5 @@ h2 {
   .news-wrapper {
     display: flex;
     flex-direction: column;
-    /* border: 2px solid rgb(182, 182, 182);
-    border-radius: 10px; */
   }
 }

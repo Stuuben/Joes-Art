@@ -10,7 +10,7 @@ const SPACE_KEY = import.meta.env.VITE_REACT_APP_SPACE_KEY;
 
 const client = createClient({
   space: SPACE_KEY,
-  environment: "master", // defaults to 'master' if not set
+  environment: "master",
   accessToken: ACCESS_KEY,
 });
 
