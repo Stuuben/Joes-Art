@@ -8,6 +8,7 @@
   background-image: url("/assets/image7.jpeg");
   background-position: center;
   background-size: cover;
+  width: 100%;
 
   .contact-text {
     padding: 10px;
@@ -22,12 +23,13 @@
     }
   }
   .contact {
+    height: 100%;
     width: 80%;
     display: flex;
     flex-direction: column;
     background-color: rgba(255, 255, 255, 0.818);
     align-items: center;
-    padding-bottom: 3rem;
+    padding-bottom: 5rem;
     @media screen and (min-width: 680px) {
       width: 50%;
     }

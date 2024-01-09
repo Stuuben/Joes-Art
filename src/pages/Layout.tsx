@@ -4,7 +4,7 @@ import { Footer } from "./Footer";
 
 export const Layout = () => {
   return (
-    <>
+    <div className="site-wrapper">
       <header>
         <Navbar></Navbar>
       </header>
@@ -14,6 +14,6 @@ export const Layout = () => {
       <footer>
         <Footer></Footer>
       </footer>
-    </>
+    </div>
   );
 };

@@ -51,13 +51,14 @@ export const Gallery = () => {
         content_type: "art",
         "fields.category": `${filter}`,
         "fields.size": `${size}`,
+        "fields.isSold": sold,
       })
       .then((response) => {
         console.log("amountOfIamgs", response.total);
         const totalAmountOfFilteredImages = response.total;
         setTotalFilterdImages(totalAmountOfFilteredImages);
       });
-  }, [filter, size]);
+  }, [filter, size, sold]);
 
   useEffect(() => {
     client
