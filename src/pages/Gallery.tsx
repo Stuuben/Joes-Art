@@ -19,7 +19,7 @@ const client = createClient({
 export const Gallery = () => {
   const [images, setImages] = useState<IGetImages[]>([]);
   const [filter, setFilter] = useState("");
-  const [page, setPage] = useState(1);
+
   const [hasMore, setHasMore] = useState(true);
   const [size, setSize] = useState("");
   const [sold, setSold] = useState<boolean | undefined>(undefined);
@@ -32,6 +32,12 @@ export const Gallery = () => {
     undefined
   );
   const [totalImages, setTotalImages] = useState<number | undefined>(undefined);
+
+  const [page, setPage] = useState(
+    parseInt(localStorage.getItem("currentPage") || "1")
+  );
+
+  console.log("page", page);
 
   useEffect(() => {
     client
@@ -89,6 +95,8 @@ export const Gallery = () => {
         setAmountOnPage(amountOnCurrentPage);
 
         console.log("transformedImages", transformedImages);
+
+        localStorage.setItem("currentPage", page.toString());
       });
   }, [filter, page, size, hasMore, sold, sortOrder]);
 

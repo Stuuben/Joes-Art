@@ -5,6 +5,10 @@ export const Navbar = () => {
   const location = useLocation();
   const path = location.pathname;
 
+  const handleClick = () => {
+    localStorage.removeItem("currentPage");
+  };
+
   return (
     <div className="nav-wrapper">
       <nav>
@@ -14,6 +18,7 @@ export const Navbar = () => {
         <Link
           className={`link ${path === "/gallery" ? "active" : ""}`}
           to="/gallery"
+          onClick={handleClick}
         >
           GALLERI
         </Link>
