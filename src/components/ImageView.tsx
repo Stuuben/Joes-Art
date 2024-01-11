@@ -9,10 +9,7 @@ import { useEffect } from "react";
 export const ImageView = () => {
   const location = useLocation();
   const navigate = useNavigate();
-
   const image: IGetImages = location.state?.image;
-
-  console.log("image in ImageView", image);
 
   const goBackToGallery = () => {
     navigate(-1);

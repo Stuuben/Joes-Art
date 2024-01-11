@@ -37,8 +37,6 @@ export const Gallery = () => {
     parseInt(localStorage.getItem("currentPage") || "1")
   );
 
-  console.log("page", page);
-
   useEffect(() => {
     client
       .getEntries({
@@ -47,7 +45,6 @@ export const Gallery = () => {
       .then((response) => {
         const totalAmountOfImages = response.total;
         setTotalImages(totalAmountOfImages);
-        console.log(response.total);
       });
   }, []);
 
@@ -60,7 +57,6 @@ export const Gallery = () => {
         "fields.isSold": sold,
       })
       .then((response) => {
-        console.log("amountOfIamgs", response.total);
         const totalAmountOfFilteredImages = response.total;
         setTotalFilterdImages(totalAmountOfFilteredImages);
       });
@@ -78,8 +74,6 @@ export const Gallery = () => {
         skip: (page - 1) * 9,
       })
       .then((response) => {
-        console.log(response);
-
         const transformedImages: IGetImages[] = response.items.map((item) => {
           return {
             sys: item.sys,
@@ -93,8 +87,6 @@ export const Gallery = () => {
 
         const amountOnCurrentPage = transformedImages.length;
         setAmountOnPage(amountOnCurrentPage);
-
-        console.log("transformedImages", transformedImages);
 
         localStorage.setItem("currentPage", page.toString());
       });
@@ -115,12 +107,10 @@ export const Gallery = () => {
   };
 
   const handlePrevPage = () => {
-    console.log("clicked prevPage");
     setPage((prevPage) => prevPage - 1);
     window.scrollTo(0, 0);
   };
   const handleNextPage = () => {
-    console.log("clicked nextPage");
     if (hasMore && (amountOnPage ?? 0) < (totalFilterdImages ?? 0)) {
       setPage((prevPage) => prevPage + 1);
     }

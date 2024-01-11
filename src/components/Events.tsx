@@ -28,12 +28,10 @@ export const Events = () => {
         });
 
         setEvents(transformedEvents);
-        console.log(transformedEvents);
       });
   }, []);
 
   const firstEvent = events[0];
-  console.log("firstEvent", firstEvent);
 
   return (
     <div>

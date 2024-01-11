@@ -8,7 +8,6 @@ export const AboutMe = () => {
         <div className="about-inner">
           <h3>Josefin Stuborn</h3>
           <img src="/assets/josefin-profile.jpg" alt="josefin" />
-
           <p>
             Hej! Mitt namn är Josefin Stuborn och på den här hemsidan kommer ni
             hitta min konst av olika slag. Jag är 33 år, har en partner, en son

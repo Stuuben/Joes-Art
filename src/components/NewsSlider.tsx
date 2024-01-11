@@ -31,7 +31,6 @@ export const NewsSlider = () => {
         });
 
         setNews(transformedNews);
-        console.log("transfomedNeeeeews", transformedNews);
       });
   }, []);
 
