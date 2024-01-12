@@ -18,7 +18,7 @@ export const Form = ({ subject }: FormProps) => {
         <input
           type="hidden"
           name="_next"
-          value="http://localhost:5173/thanks"
+          value="https://josefinstuborn.netlify.app/thanks"
           className="input-fields"
         />
         <input type="email" name="email" placeholder="Email" required />
