@@ -31,7 +31,7 @@ export const Form = ({ subject }: FormProps) => {
         ></input>
         <textarea
           name="message"
-          cols={40}
+          cols={30}
           rows={5}
           placeholder="Skriv ditt meddelande här"
         />
