@@ -7,7 +7,7 @@ interface FormProps {
 export const Form = ({ subject }: FormProps) => {
   return (
     <div className="form-wrapper">
-      <form action="https://formsubmit.co/a.stuborn@gmail.com" method="POST">
+      <form action="https://formsubmit.co/j.stuborn@hotmail.com" method="POST">
         <input
           type="hidden"
           name="_subject"
